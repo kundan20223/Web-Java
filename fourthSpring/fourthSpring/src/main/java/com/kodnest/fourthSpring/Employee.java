@@ -1,0 +1,43 @@
+package com.kodnest.fourthSpring;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Employee {
+	
+	int id ;
+	String name ;
+	int salary;
+	Department dept;
+	
+	
+	
+    @Autowired
+	public void SetEmployee(@Value("${emp.id}") int id, @Value("${emp.name}") String name, @Value("${emp.salary}") int salary, Department dept ) {
+		System.out.println("Setter is getting executed");
+		this.id  =id;
+		this.name  =name;
+		this.salary = salary;
+		
+		this.dept = dept;
+	}
+	
+	public Employee() {
+		System.out.println("Emplyee object creation started");
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", dept=" + dept + "]";
+	}
+	
+	
+	
+	
+
+	
+	
+
+}
